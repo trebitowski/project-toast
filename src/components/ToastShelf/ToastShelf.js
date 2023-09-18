@@ -13,7 +13,7 @@ function ToastShelf() {
       className={styles.wrapper}
       role="region"
       aria-live="polite"
-      aria-label="Notification"
+      aria-label="Notifications"
     >
       {toasts.map(({ id, message, variant }) => (
         <li key={id} className={styles.toastWrapper}>

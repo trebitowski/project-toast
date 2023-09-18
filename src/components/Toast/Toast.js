@@ -22,10 +22,12 @@ const ICONS_BY_VARIANT = {
 
 function Toast({ children, variant, id }) {
   const { dismissToast } = React.useContext(ToastContext);
+
   const Icon = ICONS_BY_VARIANT[variant];
   if (Icon == null) {
     throw new Error(`Unrecognized variant: ${variant}`);
   }
+  
   return (
     <div className={`${styles.toast} ${styles[variant]}`}>
       <div className={styles.iconContainer}>

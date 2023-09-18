@@ -9,7 +9,7 @@ function ToastProvider({ children }) {
 
   const addToast = React.useCallback((message, variant) => {
     const id = crypto.randomUUID();
-    
+
     setToasts((currentToasts) => [
       ...currentToasts,
       {
@@ -28,7 +28,7 @@ function ToastProvider({ children }) {
     );
   }, []);
 
-  const dismissAllToasts = React.useCallback((id) => {
+  const dismissAllToasts = React.useCallback(() => {
     setToasts([]);
   }, []);
 
