@@ -1,6 +1,6 @@
 import React from "react";
 
-export function useEscapeKey(callback) {
+function useEscapeKey(callback) {
   React.useEffect(() => {
     function handleEscape(event) {
       if (event.code === 'Escape') {
@@ -14,3 +14,5 @@ export function useEscapeKey(callback) {
     return () => window.removeEventListener('keydown', handleEscape);
   }, [callback]);
 }
+
+export default useEscapeKey;
