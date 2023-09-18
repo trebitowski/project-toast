@@ -8,14 +8,18 @@ function ToastProvider({ children }) {
   
 
   const addToast = React.useCallback((message, variant) => {
+    const id = crypto.randomUUID();
+    
     setToasts((currentToasts) => [
       ...currentToasts,
       {
-        id: crypto.randomUUID(),
+        id,
         message,
         variant,
       },
     ]);
+
+    return id;
   }, []);
 
   const dismissToast = React.useCallback((id) => {
@@ -29,7 +33,7 @@ function ToastProvider({ children }) {
   }, []);
 
   useEscapeKey(dismissAllToasts);
-  
+
   return (
     <ToastContext.Provider value={{ toasts, addToast, dismissToast }}>
       {children}
